@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Button, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { ThemeColours } from './ThemeColours';
  
 //{uri:file:// width:100,  height:100,scales:{1,2,3}}
 export function Profile(props) {
@@ -89,12 +90,7 @@ export function Profile(props) {
 const IMAGE_SIZE = 80;
  
 const DetailStyles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: ThemeColours.cerulean,
-        justifyContent: 'center',
-        alignItems: 'center'
-      },
+
   detailContainer: {
     paddingVertical: 30,
     paddingHorizontal: 20,
