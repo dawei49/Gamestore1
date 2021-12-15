@@ -37,8 +37,8 @@ export function Home ( props ) {
   return(
     <View style= {styles.container}>
       <Text style ={styles.text}>If you need any help please contact Use with daweihan1996@gmail.com</Text>
-      <TouchableOpacity style={styles.button} onPress={ () => { props.add('cities', data ) }}>
-        <Text>Add something</Text>
+      <TouchableOpacity style={styles.button} onPress={ () => { props.add('game', data ) }}>
+        <Text>Add games</Text>
       </TouchableOpacity>
       <FlatList data={ listData } renderItem={ renderItem} keyExtractor={item => item.id} />
       <Button 

@@ -1,9 +1,9 @@
 export const firebaseConfig = {
-  apiKey: "AIzaSyCGTjpup5C9xe-fHvzxcIj8POsyW1K1rVA",
-  authDomain: "gamestore-89077.firebaseapp.com",
-  projectId: "gamestore-89077",
-  storageBucket: "gamestore-89077.appspot.com",
-  messagingSenderId: "725288585411",
-  appId: "1:725288585411:web:adf992e27f4446f5c7fa76",
-  measurementId: "G-9D5YJQJXTS"
+  apiKey: "AIzaSyCi3bUyN9eANCVTr-d90EAjy3ODVidABjo",
+  authDomain: "cross-plat-fire-base.firebaseapp.com",
+  projectId: "cross-plat-fire-base",
+  storageBucket: "cross-plat-fire-base.appspot.com",
+  messagingSenderId: "606854045770",
+  appId: "1:606854045770:web:9b10d3b74c645d252e46b3",
+  measurementId: "G-2FK7MN65DN"
 }
