@@ -95,6 +95,7 @@ export default function App() {
     .catch( (error) => console.log(error.code) )
   }
 
+
   const addData = async ( FScollection , data ) => {
     //adding data to a collection with automatic id
     //const ref = await addDoc( collection(FSdb, FScollection ), data )
@@ -160,6 +161,7 @@ export default function App() {
           /> }
         </Stack.Screen>
         <Stack.Screen name="Profile" component ={Profile} />
+        <Stack.Screen name="Detail" component ={Detail} />
         <Stack.Screen name="Home" options={{
           headerTitle: "Home",
           headerRight: (props) => <Signout {...props} handler={SignoutHandler} user={user}/>
