@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, Button, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from "react-native";
+import { Image,View, Text, StyleSheet, Button, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { ThemeColours } from './ThemeColours';
 import { Feedback } from './Feedback';
@@ -19,6 +19,12 @@ export function Signin ( props ) {
 
   return(
     <View style={styles.container}>
+        <Image style={styles.title}
+          source={require("../assets/Title.jpg")}
+        />
+        <Image style={styles.image}
+          source={require("../assets/nintendo.jpg")}
+        />
       <Text>Sign in</Text>
       <KeyboardAvoidingView 
         behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -49,6 +55,7 @@ export function Signin ( props ) {
   )
 }
 
+const IMAGE_SIZE = 80;
 const styles = StyleSheet.create( {
   input: {
     backgroundColor: ThemeColours.cultured,
@@ -87,4 +94,15 @@ const styles = StyleSheet.create( {
   metaText: {
     textAlign: 'center',
   },
+  image: {
+    width: IMAGE_SIZE,
+    height: IMAGE_SIZE,
+    borderRadius: IMAGE_SIZE / 2,
+    backgroundColor: "grey"
+  },
+  title: {
+    width: 300,
+    height:100,
+    backgroundColor: "grey"
+  }
 })

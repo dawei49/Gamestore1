@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import { View, Text, StyleSheet, Button, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from "react-native";
+import { Image,View, Text, StyleSheet, Button, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { ThemeColours } from './ThemeColours';
 import { Feedback } from './Feedback';
@@ -55,6 +55,12 @@ export function Signup(props) {
 
   return (
     <View style={styles.container}>
+       <Image style={styles.title}
+          source={require("../assets/Title.jpg")}
+        />
+              <Image style={styles.image}
+          source={require("../assets/nintendo.jpg")}
+        />
       <Text>Sign up</Text>
       <KeyboardAvoidingView 
         behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -87,6 +93,7 @@ export function Signup(props) {
   )
 }
 
+const IMAGE_SIZE = 120;
 const styles = StyleSheet.create( {
   input: {
     backgroundColor: ThemeColours.cultured,
@@ -108,7 +115,7 @@ const styles = StyleSheet.create( {
   },
   container: {
     flex: 1,
-    backgroundColor: ThemeColours.turquoise,
+    backgroundColor: ThemeColours.cerulean,
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -131,4 +138,15 @@ const styles = StyleSheet.create( {
   metaText: {
     textAlign: 'center',
   },
+  image: {
+    width: IMAGE_SIZE,
+    height: IMAGE_SIZE,
+    borderRadius: IMAGE_SIZE / 2,
+    backgroundColor: "grey"
+  },
+  title: {
+    width: 300,
+    height:100,
+    backgroundColor: "grey"
+  }
 })

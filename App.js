@@ -8,7 +8,8 @@ import { Signup } from './components/Signup'
 import { Signin } from './components/Signin'
 import { Home } from './components/Home';
 import { Signout } from './components/Signout';
-import { Detail } from './components/Detail'
+import { Detail } from './components/Detail';
+import {Profile} from './components/Profile';
 // firebase
 import { firebaseConfig } from './Config';
 import {initializeApp,} from 'firebase/app'
@@ -158,6 +159,7 @@ export default function App() {
           handler={SigninHandler} 
           /> }
         </Stack.Screen>
+        <Stack.Screen name="Profile" component ={Profile} />
         <Stack.Screen name="Home" options={{
           headerTitle: "Home",
           headerRight: (props) => <Signout {...props} handler={SignoutHandler} user={user}/>
