@@ -5,5 +5,10 @@ export const ThemeColours = {
   turquoise: 'hsla(173, 63%, 51%, 1)',
   black: 'hsla(0, 0%, 3%, 1)',
   cerise: 'hsla(345, 63%, 51%, 1)',
-  ceriseLight: 'hsla(345, 63%, 65%, 1)'
+  ceriseLight: 'hsla(345, 63%, 65%, 1)',
+  red: 'hsla(355, 78%, 50%, 1)',
+  yellow: 'hsla(46, 78%, 50%, 1)',
+  blue: 'hsla(170, 78%, 50%, 1)',
+  gray :'hsla(46, 0%, 50%, 1)'
+
 }
