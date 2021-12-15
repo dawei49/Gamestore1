@@ -1,11 +1,13 @@
 import React, {useEffect,useState} from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, FlatList, Button } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, FlatList,Image, Button,TextInput } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { ThemeColours } from './ThemeColours';
 
 export function Home ( props ) {
   const navigation = useNavigation()
-  const [ listData, setListData ] = useState()
+  const [ borrower, setAuthor ] = useState()
+  const [ gamenames, setTitle] = useState()
+  const [Date, setDate] = useState()
 
   useEffect( () => {
    if(!props.auth) {
@@ -14,63 +16,76 @@ export function Home ( props ) {
    console.log( props.user )
   }, [props.auth])
 
-  useEffect( () => {
-    setListData( props.data )
-  }, [props.data])
-
-  const data = { time: new Date().getTime(), user: Math.random() * 100 }
-
-  const onClick = (item) => {
-    console.log( item.id )
-    navigation.navigate('Detail', {id: item.id, time: item.time, user: item.user } )
+  const handleSubmit =() =>{
+    if( gamenames && borrower&& Date ) {
+      let game = new Object()
+      game.gamenames = gamenames
+      game.borrower = borrower
+      game.data= Date
+      props.add( game)
+      .thn((result)=> console.log(result))
+      .catch((error)=> console.log(error))
+    }
+    else{
+      console.log('no data', author,title,data)
+    }
   }
 
-  const renderItem = ({item}) => (
-    <View style={styles.item} >
-      <Text onPress={ () => onClick(item) }>
-        time: {item.time}
-        id: {item.id}
-      </Text>
-    </View>
-  )
-
   return(
-    <View style= {styles.container}>
-      <Text style ={styles.text}>If you need any help please contact Use with daweihan1996@gmail.com</Text>
-      <TouchableOpacity style={styles.button} onPress={ () => { props.add('game', data ) }}>
-        <Text>Add games</Text>
-      </TouchableOpacity>
-      <FlatList data={ listData } renderItem={ renderItem} keyExtractor={item => item.id} />
-      <Button 
+    <View style= {HomeStyles.pageContainer}>
+      <Text>If you need any help please contact Use with daweihan1996@gmail.com</Text>
+      <Text>Borrow game name</Text>
+      <TextInput style={HomeStyles.input} onChangeText={val => setTitle(val)} />
+      <Text>user</Text>
+      <TextInput style={HomeStyles.input} onChangeText={val => setAuthor(val)} />
+      <TextInput />
+      <Text>Borrow date</Text>
+      {/*<TextInput style={HomeStyles.input} onChangeText={ val =>setDate(val) }/>*/}
+      <TextInput style={HomeStyles.input} onChangeText={val => setDate(val)} />
+      <TouchableOpacity style={HomeStyles.button} onPress={handleSubmit}>
+   <Text style={HomeStyles.buttonText}>Borrow game</Text>
+ </TouchableOpacity>
+      <Button style = {HomeStyles.button}
         title= "Go to profile"
 
         onPress={()=>navigation.navigate('Profile')}/>
+        <Button style = {HomeStyles.button}
+        title= "Go to Detail"
 
+        onPress={()=>navigation.navigate('Detail')}/>
+            <Image style={HomeStyles.title}
+          source={require("../assets/Title.jpg")}
+        />
     </View>
   )
 }
 
-const styles = StyleSheet.create({
+const HomeStyles = StyleSheet.create({
   
   
+  pageContainer: {
+    minHeight: 300,
+    backgroundColor: 'lightblue',
+    padding: 10,
+  },
+  input: {
+    backgroundColor: 'white',
+    padding: 5,
+    color:'red'
+  },
   button: {
-    backgroundColor: ThemeColours.turquoise,
+    backgroundColor: 'blue',
     padding: 10,
+    marginVertical: 10,
   },
-  item: {
-    padding: 10,
-    borderBottomColor: 'grey',
-    borderBottomWidth: 1,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: ThemeColours.cerulean,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  text:{
-    color: ThemeColours.cultured,
+  buttonText: {
+    color: 'red',
     textAlign: 'center',
-    
+  },
+  title: {
+    width: 300,
+    height:100,
+    backgroundColor: "grey"
+
   }
 })
